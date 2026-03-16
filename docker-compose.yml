@@ -1,0 +1,109 @@
+version: "3.9"
+
+services:
+  # 1. DATABASE
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Ho_Chi_Minh
+      POSTGRES_DB: openmuc
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./pgdata:/var/lib/postgresql/data
+
+
+  # 2. OPENMUC (Framework)
+
+  openmuc:
+
+    build:
+      context: .
+      dockerfile: Dockerfile.openmuc
+    
+    image: openmuc:latest
+    container_name: openmuc
+
+    restart: unless-stopped
+
+    depends_on:
+
+      - postgres
+    network_mode: "host"
+    cap_add:
+
+      - NET_BIND_SERVICE
+      - NET_ADMIN
+
+    ports:
+
+      - "80:80"
+
+    privileged: true
+
+    volumes:
+
+      - /dev/:/dev
+      - ./framework:/app/framework
+      - /var/run/dbus:/var/run/dbus
+  # 3. BACKEND (Spring Boot)
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    image: bms-backend:latest
+    container_name: bms-backend
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - openmuc
+    ports:
+      - "8081:8081"
+    environment:
+      TZ: Asia/Ho_Chi_Minh
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/openmuc
+      SPRING_DATASOURCE_USERNAME: openmuc_user
+      SPRING_DATASOURCE_PASSWORD: openmuc
+      OPENMUC_URL: http://openmuc:8888
+
+  # 4. NETWORK SERVICE (Python - Host Mode)
+  # Service này chạy script Python để tương tác trực tiếp với NetworkManager của máy thật
+  network-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.network
+    container_name: network-service
+    restart: unless-stopped
+    privileged: true
+    network_mode: host  # Bắt buộc để nhìn thấy card mạng thật
+    volumes:
+      - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+
+  # 5. FRONTEND (Angular + Node Proxy)
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    image: bms-frontend:latest
+    container_name: bms-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+      - openmuc
+      - network-service
+    ports:
+      - "80:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # Để gọi về network-service đang chạy ở host
+    environment:
+      TZ: Asia/Ho_Chi_Minh
+      # Proxy tới Backend và OpenMUC qua mạng nội bộ Docker
+      API_TARGET_8081: "http://bms-backend:8081"
+      API_TARGET_8888: "http://openmuc:8888"
+      # Proxy tới Network Service qua cổng 5000 của Host (do dùng network_mode: host)
+      API_TARGET_NETWORK: "http://host.docker.internal:5000"

@@ -1,0 +1,20 @@
+FROM eclipse-temurin:17-jre-jammy
+
+# 1. Install NetworkManager so 'nmcli' is available to Java
+RUN apt-get update && apt-get install -y \
+    network-manager \
+    && rm -rf /var/lib/apt/lists/*
+
+# This is where we mount the OpenMUC framework from the host
+WORKDIR /app/framework
+
+EXPOSE 80
+
+ENV JAVA_OPTS=""
+
+# 2. Ensure the container knows where to find the host's D-Bus
+# (This matches the volume mount in your docker-compose)
+ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/var/run/dbus/system_bus_socket
+
+# Run Felix from the framework root
+ENTRYPOINT ["sh", "-c", "java -Dgosh.args=--nointeractive $JAVA_OPTS -jar felix/felix.jar"]
