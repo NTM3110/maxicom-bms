@@ -1,0 +1,144 @@
+26.03.24 14:52:11.337 [FelixStartLevel] INFO  org.eclipse.jetty.server.Server - jetty-11.0.22; built: 2024-06-27T16:27:26.756Z; git: e711d4c7040cb1e61aa68cb248fa7280b734a3bb; jvm 21.0.10+7-Ubuntu-124.04
+26.03.24 14:52:11.437 [FelixStartLevel] INFO  o.e.j.s.s.DefaultSessionIdManager - Session workerName=node0
+26.03.24 14:52:11.462 [FelixStartLevel] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@13fd7eb5{/,null,AVAILABLE}
+26.03.24 14:52:11.481 [FelixStartLevel] INFO  org.eclipse.jetty.server.Server - Started Server@2964d46d{STARTING}[11.0.22,sto=0] @1537ms
+26.03.24 14:52:11.545 [FelixStartLevel] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@75fd97c6{HTTP/1.1, (http/1.1)}{0.0.0.0:8888}
+26.03.24 14:52:11.630 [FelixStartLevel] INFO  o.e.jetty.util.ssl.SslContextFactory - x509=X509@121e8328(openmuc,h=[openmuc],a=[],w=[]) for Server@4a970a2[provider=null,keyStore=file:///home/shou/Documents/ATEnergy/BMS/Project/openmuc-at/framework/conf/https-certificate.jks,trustStore=null]
+26.03.24 14:52:11.812 [FelixStartLevel] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@219bb09b{SSL, (ssl, http/1.1)}{0.0.0.0:8889}
+26.03.24 14:52:11.814 [FelixStartLevel] INFO  org.apache.felix.http - Started Jetty 11.0.22 at port(s) HTTP:8888 HTTPS:8889 on context path / [minThreads=8,maxThreads=200,acceptors=1,selectors=6]
+26.03.24 14:52:11.945 [FelixStartLevel] INFO  o.o.f.core.datamanager.DataManager - Activating Data Manager with config conf/channels.xml
+26.03.24 14:52:12.095 [FelixStartLevel] WARN  o.o.f.core.datamanager.Device - No driver bundle available for configured driver: 'virtual'.
+26.03.24 14:52:12.098 [FelixStartLevel] WARN  o.o.f.core.datamanager.Device - No driver bundle available for configured driver: 'virtual'.
+26.03.24 14:52:12.098 [FelixStartLevel] WARN  o.o.f.core.datamanager.Device - No driver bundle available for configured driver: 'virtual'.
+26.03.24 14:52:12.098 [FelixStartLevel] WARN  o.o.f.core.datamanager.Device - No driver bundle available for configured driver: 'virtual'.
+26.03.24 14:52:12.100 [FelixStartLevel] WARN  o.o.f.core.datamanager.Device - No driver bundle available for configured driver: 'virtual'.
+26.03.24 14:52:12.101 [FelixStartLevel] WARN  o.o.f.core.datamanager.Device - No driver bundle available for configured driver: 'modbus'.
+26.03.24 14:52:12.103 [FelixStartLevel] WARN  o.o.f.core.datamanager.Device - No driver bundle available for configured driver: 'modbus'.
+26.03.24 14:52:12.108 [FelixStartLevel] INFO  o.o.f.app.simpledemo.SimpleDemoApp - Activating ATEnergy BMS App
+26.03.24 14:52:12.109 [FelixStartLevel] INFO  o.o.f.app.simpledemo.SimpleDemoApp - Init DB Update Timer
+26.03.24 14:52:12.115 [FelixStartLevel] INFO  o.o.f.app.simpledemo.SimpleDemoApp - Initializing CSV Logger Timer (60s interval)
+26.03.24 14:52:12.122 [FelixStartLevel] INFO  o.o.f.d.mqtt.MqttLoggerComponent - Activating MQTT Logger
+26.03.24 14:52:12.132 [FelixStartLevel] WARN  o.o.f.l.o.c.PropertyFileValidator - # localAddress= is not set org.openmuc.framework.datalogger.mqtt.MqttLogger
+26.03.24 14:52:12.231 [FelixStartLevel] INFO  o.o.f.datalogger.mqtt.MqttLogger - MqttSettings for MqttConnection 
+
+26.03.24 14:52:12.359 [OpenMUC Data Manager] INFO  o.o.f.core.datamanager.DataManager - Data logger registered: mqttlogger
+26.03.24 14:52:12.362 [FelixStartLevel] INFO  o.o.f.d.sql.SqlLoggerService - Activating SQL Logger
+26.03.24 14:52:12.375 [OpenMUC Data Manager] INFO  o.o.f.core.datamanager.DataManager - Data logger registered: sqllogger
+26.03.24 14:52:12.396 [OpenMUC Data Manager] INFO  o.o.f.core.datamanager.DataManager - Driver registered: modbus
+26.03.24 14:52:12.398 [OpenMUC Data Manager Pool - thread-1] INFO  o.o.f.driver.modbus.ModbusDriver - Set sampling timeout to 3000 ms.
+26.03.24 14:52:12.398 [OpenMUC Data Manager Pool - thread-2] INFO  o.o.f.driver.modbus.ModbusDriver - Set sampling timeout to 3000 ms.
+26.03.24 14:52:12.398 [OpenMUC Data Manager Pool - thread-2] INFO  o.o.f.driver.modbus.ModbusDriver - New Modbus Connection on device: /dev/ttyS7
+26.03.24 14:52:12.398 [OpenMUC Data Manager Pool - thread-1] INFO  o.o.f.driver.modbus.ModbusDriver - New Modbus Connection on device: /dev/ttyS1
+26.03.24 14:52:12.408 [OpenMUC Data Manager] INFO  o.o.f.core.datamanager.DataManager - Driver registered: mqtt
+26.03.24 14:52:12.434 [OpenMUC Data Manager Pool - thread-2] INFO  o.o.f.d.m.rtu.ModbusRTUConnection - Modbus Device: /dev/ttyS7 connected
+26.03.24 14:52:12.434 [OpenMUC Data Manager Pool - thread-1] INFO  o.o.f.d.m.rtu.ModbusRTUConnection - Modbus Device: /dev/ttyS1 connected
+26.03.24 14:52:12.454 [FelixStartLevel] INFO  o.o.f.d.mqtt.MqttLoggerComponent - org.openmuc.framework.lib.parser.custom.CustomParserServiceImpl changed, updating Parser
+26.03.24 14:52:12.455 [FelixStartLevel] INFO  o.o.f.datalogger.mqtt.MqttLogger - put parserID custom to PARSERS
+26.03.24 14:52:12.463 [FelixStartLevel] INFO  o.o.f.d.mqtt.MqttLoggerComponent - org.openmuc.framework.lib.parser.openmuc.OpenmucParserServiceImpl changed, updating Parser
+26.03.24 14:52:12.463 [FelixStartLevel] INFO  o.o.f.datalogger.mqtt.MqttLogger - put parserID openmuc to PARSERS
+26.03.24 14:52:12.473 [FelixStartLevel] INFO  o.o.f.server.modbus.ModbusComponent - Activating Modbus Server
+26.03.24 14:52:12.496 [FelixStartLevel] INFO  o.o.f.core.datamanager.DataManager - Registered Server: modbus.
+26.03.24 14:52:12.564 [FelixStartLevel] WARN  o.o.webui.maxicombms.MaxicomBmsWebUi - Activating MaxicomBmsWebUi-Svelte
+26.03.24 14:52:12.574 [FelixStartLevel] WARN  o.o.framework.webui.base.WebUiBase - Can't register WebUI plugin Maxicom BMS.
+26.03.24 14:52:12.575 [FelixStartLevel] INFO  o.o.framework.webui.base.WebUiBase - Activating WebUI Base
+26.03.24 14:52:12.579 [FelixStartLevel] INFO  o.o.framework.webui.base.WebUiBase - WebUI plugin registered: Maxicom BMS
+26.03.24 14:52:12.600 [FelixStartLevel] INFO  o.o.f.server.restws.RestServer - Activating REST Server
+26.03.24 14:52:13.459 [Modbus Update] INFO  o.o.f.app.simpledemo.SimpleDemoApp - Initializing isInitSoC0 array: string number: 2, cell number: 110
+26.03.24 14:52:13.460 [Modbus Update] INFO  o.o.f.app.simpledemo.SimpleDemoApp - Created SoCEngines array.
+26.03.24 14:52:14.928 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.sql.SqlLoggerService)] INFO  o.o.f.d.sql.SqlLoggerService - Configuration changed - new configuration 
+url=jdbc:postgresql://localhost:5432/openmuc
+user=openmuc_user
+password=*****
+ssl=false
+socket_timeout=5
+tcp_keep_alive=true
+psql_pass=postgres
+timezone=Asia/Bangkok
+26.03.24 14:52:14.931 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.sql.SqlLoggerService)] INFO  o.o.f.datalogger.sql.DbConnector - sql driver
+26.03.24 14:52:14.932 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.sql.SqlLoggerService)] INFO  o.o.f.datalogger.sql.DbConnector - URL is: jdbc:postgresql://localhost:5432/openmuc
+26.03.24 14:52:37.944 [qtp1112494441-69] WARN  o.o.webui.maxicombms.MaxicomBmsWebUi - [MaxicomBmsServlet] Asset not found: /html/favicon.ico
+26.03.24 14:52:42.401 [qtp1112494441-557] WARN  o.o.webui.maxicombms.MaxicomBmsWebUi - [MaxicomBmsServlet] Asset not found: /html/favicon.ico
+26.03.24 14:52:56.183 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.mqtt.MqttLogger)] INFO  o.o.f.datalogger.mqtt.MqttLogger - Configuration changed - new configuration 
+port=8090
+host=222.252.22.158
+ssl=false
+username=atenergy
+password=*****
+clientId=atenergy
+parser=custom
+webSocket=false
+connectionRetryInterval=10
+connectionAliveInterval=10
+persistenceDirectory=data/logger/mqtt
+multiple=true
+maxFileCount=2
+maxFileSize=5000
+maxBufferSize=1000
+recoveryChunkSize=0
+recoveryDelay=0
+lastWillTopic=v1/gateway/telemetry
+lastWillPayload=hello from openmuc
+lastWillAlways=false
+firstWillTopic=v1/gateway/telemetry
+firstWillPayload={"str_1":[{"ts":1767284259000,"values":{"cell1_R":42,"cell1_V":2189,"cell1_T":3000,"cell2_R":46,"cell2_V":2191,"cell2_T":3003}}]}
+26.03.24 14:52:56.183 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.mqtt.MqttLogger)] INFO  o.o.f.datalogger.mqtt.MqttLogger - Shutting down MQTT logger
+26.03.24 14:52:56.183 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.mqtt.MqttLogger)] INFO  o.o.framework.lib.mqtt.MqttWriter - shutting down 
+26.03.24 14:52:56.183 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.mqtt.MqttLogger)] INFO  o.o.framework.lib.mqtt.MqttWriter - [mqttlogger] Saving buffers.
+26.03.24 14:52:56.184 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.mqtt.MqttLogger)] INFO  o.o.f.lib.mqtt.MqttConnection - Shutting down MQTT connection
+26.03.24 14:52:56.218 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.mqtt.MqttLogger)] INFO  o.o.f.datalogger.mqtt.MqttLogger - MqttSettings for MqttConnection 
+
+26.03.24 14:52:56.219 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.mqtt.MqttLogger)] INFO  o.o.f.lib.mqtt.MqttConnection - Using configured client ID: atenergy
+26.03.24 14:52:56.220 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.mqtt.MqttLogger)] INFO  o.o.f.datalogger.mqtt.MqttLogger - Connecting to MQTT Broker
+26.03.24 14:52:56.221 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.mqtt.MqttLogger)] INFO  o.o.f.lib.mqtt.MqttConnection - Using configured client ID: atenergy
+26.03.24 14:52:56.222 [CM Configuration Updater (Update: pid=org.openmuc.framework.datalogger.mqtt.MqttLogger)] WARN  o.o.f.lib.mqtt.MqttConnection - Client atenergy connecting to server 222.252.22.158
+26.03.24 14:52:56.526 [com.hivemq.client.mqtt-1-1] WARN  o.o.framework.lib.mqtt.MqttWriter - [WRITER] connected listener fired
+26.03.24 14:52:56.526 [com.hivemq.client.mqtt-1-1] INFO  o.o.framework.lib.mqtt.MqttWriter - [mqttlogger] connected to broker 222.252.22.158:8090
+26.03.24 14:52:56.530 [MqttRecovery] INFO  o.o.framework.lib.mqtt.MqttWriter - [mqttlogger] Clearing memory (RAM) buffer.
+26.03.24 14:52:56.531 [MqttRecovery] INFO  o.o.framework.lib.mqtt.MqttWriter - [mqttlogger] Memory buffer already empty.
+26.03.24 14:52:56.531 [RxComputationThreadPool-2] WARN  o.o.f.lib.mqtt.MqttConnection - Connect successfully!!!
+26.03.24 14:52:56.531 [MqttRecovery] INFO  o.o.framework.lib.mqtt.MqttWriter - [mqttlogger] Empty memory buffer done.
+26.03.24 14:52:56.531 [MqttRecovery] INFO  o.o.framework.lib.mqtt.MqttWriter - [mqttlogger] Clearing file buffer.
+26.03.24 14:52:56.532 [MqttRecovery] INFO  o.o.framework.lib.mqtt.MqttWriter - [mqttlogger] File buffer already empty.
+26.03.24 14:52:56.532 [MqttRecovery] INFO  o.o.framework.lib.mqtt.MqttWriter - [mqttlogger] Empty file buffer done.
+26.03.24 14:52:56.966 [qtp1112494441-71] WARN  o.o.webui.maxicombms.MaxicomBmsWebUi - [MaxicomBmsServlet] Asset not found: /html/favicon.ico
+26.03.24 14:52:57.208 [com.hivemq.client.mqtt-1-1] WARN  o.o.f.datalogger.mqtt.MqttLogger - MQTT disconnected, triggering reconnect. Cause: Server closed connection without DISCONNECT.
+26.03.24 14:52:57.209 [com.hivemq.client.mqtt-1-1] WARN  o.o.f.datalogger.mqtt.MqttLogger - Scheduling MQTT reconnect
+26.03.24 14:52:57.211 [mqtt-reconnect] WARN  o.o.f.datalogger.mqtt.MqttLogger - Reconnecting MQTT connection
+26.03.24 14:52:57.212 [mqtt-reconnect] INFO  o.o.f.lib.mqtt.MqttConnection - Shutting down MQTT connection
+26.03.24 14:52:57.714 [mqtt-reconnect] INFO  o.o.f.datalogger.mqtt.MqttLogger - MqttSettings for MqttConnection 
+
+26.03.24 14:52:57.715 [mqtt-reconnect] INFO  o.o.f.lib.mqtt.MqttConnection - Using configured client ID: atenergy
+26.03.24 14:52:57.716 [mqtt-reconnect] INFO  o.o.f.lib.mqtt.MqttConnection - Using configured client ID: atenergy
+26.03.24 14:52:57.718 [mqtt-reconnect] WARN  o.o.f.lib.mqtt.MqttConnection - Client atenergy connecting to server 222.252.22.158
+26.03.24 14:52:57.788 [RxComputationThreadPool-5] WARN  o.o.f.lib.mqtt.MqttConnection - Connect successfully!!!
+26.03.24 14:52:57.788 [RxComputationThreadPool-5] WARN  o.o.f.datalogger.mqtt.MqttLogger - MQTT connected → marking writer connected
+26.03.24 14:52:57.789 [RxComputationThreadPool-5] WARN  o.o.f.datalogger.mqtt.MqttLogger - MQTT connected — stopping reconnect loop
+26.03.24 14:52:57.789 [RxComputationThreadPool-5] WARN  o.o.f.datalogger.mqtt.MqttLogger - Reconnect loop stopped
+26.03.24 14:53:00.016 [OpenMUC Data Manager] WARN  o.o.f.datalogger.mqtt.MqttLogger - [MQTT-LOGGER] log() called: records=1156, ts=1774338780000
+26.03.24 14:53:00.016 [OpenMUC Data Manager] WARN  o.o.f.datalogger.mqtt.MqttLogger - [MQTT-LOGGER] NEW mqttWriter instance id=1048588306
+26.03.24 14:53:17.242 [FelixStartLevel] INFO  o.o.framework.webui.base.WebUiBase - Deactivating WebUI Base
+26.03.24 14:53:17.245 [FelixStartLevel] INFO  o.o.framework.webui.base.WebUiBase - WebUI plugin deregistered: Maxicom BMS.
+26.03.24 14:53:17.246 [FelixStartLevel] INFO  o.o.f.server.restws.RestServer - Deactivating REST Server
+26.03.24 14:53:17.253 [FelixStartLevel] INFO  o.o.f.core.datamanager.DataManager - Deactivating Data Manager
+26.03.24 14:53:17.254 [FelixStartLevel] INFO  o.o.f.core.datamanager.DataManager - Unregistering driver: modbus.
+26.03.24 14:53:17.254 [FelixStartLevel] INFO  o.o.f.core.datamanager.DataManager - Driver unregistered: modbus
+26.03.24 14:53:17.254 [FelixStartLevel] INFO  o.o.f.core.datamanager.DataManager - Unregistering driver: mqtt.
+26.03.24 14:53:17.255 [FelixStartLevel] INFO  o.o.f.core.datamanager.DataManager - Driver unregistered: mqtt
+26.03.24 14:53:17.255 [FelixStartLevel] INFO  o.o.f.core.datamanager.DataManager - Unregistering data logger: mqttlogger.
+26.03.24 14:53:17.255 [FelixStartLevel] INFO  o.o.f.core.datamanager.DataManager - Data logger deregistered: mqttlogger
+26.03.24 14:53:17.255 [FelixStartLevel] INFO  o.o.f.core.datamanager.DataManager - Unregistering data logger: sqllogger.
+26.03.24 14:53:17.256 [FelixStartLevel] INFO  o.o.f.core.datamanager.DataManager - Data logger deregistered: sqllogger
+26.03.24 14:53:17.257 [FelixStartLevel] INFO  o.o.f.server.modbus.ModbusComponent - Deactivating Modbus Server
+26.03.24 14:53:17.262 [FelixStartLevel] INFO  o.o.f.d.sql.SqlLoggerService - Deactivating SQL Logger
+26.03.24 14:53:17.264 [FelixStartLevel] INFO  o.o.f.d.mqtt.MqttLoggerComponent - Deactivating MQTT logger
+26.03.24 14:53:17.264 [FelixStartLevel] INFO  o.o.f.datalogger.mqtt.MqttLogger - Shutting down MQTT logger
+26.03.24 14:53:17.265 [FelixStartLevel] INFO  o.o.framework.lib.mqtt.MqttWriter - shutting down 
+26.03.24 14:53:17.265 [FelixStartLevel] INFO  o.o.framework.lib.mqtt.MqttWriter - [mqttlogger] Saving buffers.
+26.03.24 14:53:17.265 [FelixStartLevel] INFO  o.o.f.lib.mqtt.MqttConnection - Shutting down MQTT connection
+26.03.24 14:53:17.267 [FelixStartLevel] INFO  o.o.f.d.mqtt.MqttLoggerComponent - org.openmuc.framework.lib.parser.openmuc.OpenmucParserServiceImpl unregistering, removing Parser
+26.03.24 14:53:17.270 [FelixStartLevel] INFO  o.o.f.d.mqtt.MqttLoggerComponent - org.openmuc.framework.lib.parser.custom.CustomParserServiceImpl unregistering, removing Parser
+26.03.24 14:53:17.278 [FelixStartLevel] INFO  org.eclipse.jetty.server.Server - Stopped Server@2964d46d{STOPPING}[11.0.22,sto=0]
+26.03.24 14:53:17.284 [FelixStartLevel] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@75fd97c6{HTTP/1.1, (http/1.1)}{0.0.0.0:8888}
+26.03.24 14:53:17.285 [FelixStartLevel] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@219bb09b{SSL, (ssl, http/1.1)}{0.0.0.0:8889}
+26.03.24 14:53:17.288 [FelixStartLevel] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@13fd7eb5{/,null,STOPPED}
+26.03.24 14:53:17.293 [FelixStartLevel] INFO  org.apache.felix.http - Stopped Jetty
